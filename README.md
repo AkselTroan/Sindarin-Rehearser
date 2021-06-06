@@ -2,7 +2,6 @@
 Python script that makes it easier to practice your sindarin. There are currently two gamemodes implemented: Glossary and Sentences. Planning on implementing conversation mode.
 Here you will have a conversasion with the script and hopefully prepare you for speaking with someone else in Sindarin.
 
-> **_NOTE:_**  The script is currently sensitive for spaces and such. Will be fixed in furture patch.
 
 # Glossary
 Here you can practice sindarin words. The script will give you a word and it is your task to translate. You can translate from Sindarin to English or English to Sindarin.

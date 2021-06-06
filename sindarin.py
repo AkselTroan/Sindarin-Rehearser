@@ -38,6 +38,7 @@ def menu():
               "2: Sentences\n"
               "2: Conversation\n")
         gameMode = input("Please enter gamemode: ")
+
     return gameMode
 
 
@@ -53,39 +54,59 @@ def glossary():
         language = input("Please enter your language: ")
 
     if language == "1":
-        lines = open("glossary.txt", "r").read().splitlines()
+        lines = open("Resources/glossary.txt", "r").read().splitlines()
         playing = True
         print(bcolors.FAIL + "You can quit anytime by inputting: " + bcolors.ENDC + bcolors.OKGREEN + "!q" + bcolors.ENDC)
+
         while playing is True:
             currentLine = random.choice(lines).split(":")
             print(f"Translate to English: {currentLine[0]}")
             translation = input()
+
             if translation.upper() == "!Q":
-              playing = False
-              break
-            elif translation.upper() == currentLine[1].upper():
+                playing = False
+                break
+
+            elif translation.upper().replace(" ","") == currentLine[1].upper().replace(" ", ""):
                 print(bcolors.OKGREEN + f"Correct! The translation goes: {currentLine[1]}\n" + bcolors.ENDC)
+
+            elif (currentLine[1].upper().replace(" ", "").find(translation.upper().replace(" ","")) != -1
+            or translation.upper().replace(" ","") in currentLine[1].upper().replace(" ", "")):
+                print(bcolors.WARNING + "Not entirely correct, the translation goes " + bcolors.ENDC + bcolors.OKGREEN
+                  + currentLine[1] + bcolors.ENDC)
+
             else:
                 print(bcolors.FAIL + f'Wrong. The translation goes: ' + bcolors.ENDC + bcolors.OKBLUE + currentLine[1]
-                      + bcolors.ENDC + "\n")
+                  + bcolors.ENDC + "\n")
+
         print(bcolors.OKGREEN + "Thank you for using the Sindarin Rehearser!" + bcolors.ENDC)
 
     if language == "2":
-        lines = open("glossary.txt", "r").read().splitlines()
+        lines = open("Resources/glossary.txt", "r").read().splitlines()
         playing = True
         print(bcolors.FAIL + "You can quit anytime by inputting: " + bcolors.ENDC + bcolors.OKGREEN + "!q" + bcolors.ENDC)
+
         while playing is True:
             currentLine = random.choice(lines).split(":")
             print(f"Translate to Sindarin: {currentLine[1]}")
             translation = input()
+
             if translation.upper() == "!Q":
               playing = False
               break
+
             elif translation.upper() == currentLine[0].upper():
                 print(bcolors.OKGREEN + f"Correct! The translation goes: {currentLine[0]}\n" + bcolors.ENDC)
+
+            elif (currentLine[0].upper().replace(" ", "").find(translation.upper().replace(" ","")) != -1
+            or translation.upper().replace(" ","") in currentLine[1].upper().replace(" ", "")):
+                print(bcolors.WARNING + "Not entirely correct, the translation goes " + bcolors.ENDC + bcolors.OKGREEN
+                  + currentLine[0] + bcolors.ENDC)
+
             else:
                 print(bcolors.FAIL + f'Wrong. The translation goes: ' + bcolors.ENDC + bcolors.OKBLUE + currentLine[0]
                       + bcolors.ENDC + "\n")
+
         print(bcolors.OKGREEN + "Thank you for using the Sindarin Rehearser!" + bcolors.ENDC)
 
 
@@ -101,39 +122,59 @@ def sentences():
         language = input("Please enter your language: ")
 
     if language == "1":
-        lines = open("sentence.txt", "r").read().splitlines()
+        lines = open("Resources/sentence.txt", "r").read().splitlines()
         playing = True
         print(bcolors.FAIL + "You can quit anytime by inputting: " + bcolors.ENDC + bcolors.OKGREEN + "!q" + bcolors.ENDC)
+
         while playing is True:
             currentLine = random.choice(lines).split(":")
             print(f"Translate to English: {currentLine[0]}")
             translation = input()
+
             if translation.upper() == "!Q":
                 playing = False
                 break
-            elif translation.upper().replace(" ","") in currentLine[1].upper().replace(" ", ""):
+
+            elif translation.upper().replace(" ","") == currentLine[1].upper().replace(" ", ""):
                 print(bcolors.OKGREEN + f"Correct! The translation goes: {currentLine[1]}\n" + bcolors.ENDC)
+
+            elif (currentLine[1].upper().replace(" ", "").find(translation.upper().replace(" ","")) != -1
+            or translation.upper().replace(" ","") in currentLine[1].upper().replace(" ", "")):
+                print(bcolors.WARNING + "Not entirely correct, the translation goes " + bcolors.ENDC + bcolors.OKGREEN
+                  + currentLine[1] + bcolors.ENDC)
+
             else:
                 print(bcolors.FAIL + f'Wrong. The translation goes: ' + bcolors.ENDC + bcolors.OKBLUE + currentLine[1]
                   + bcolors.ENDC + "\n")
+
         print(bcolors.OKGREEN + "Thank you for using the Sindarin Rehearser!" + bcolors.ENDC)
 
     if language == "2":
-        lines = open("sentence.txt", "r").read().splitlines()
+        lines = open("Resources/sentence.txt", "r").read().splitlines()
         playing = True
         print(bcolors.FAIL + "You can quit anytime by inputting: " + bcolors.ENDC + bcolors.OKGREEN + "!q" + bcolors.ENDC)
+
         while playing is True:
             currentLine = random.choice(lines).split(":")
             print(f"Translate to Sindarin: {currentLine[1]}")
             translation = input()
+
             if translation.upper() == '!Q':
                 playing = False
                 break
+
             elif translation.upper() == currentLine[0].upper():
                 print(bcolors.OKGREEN + f"Correct! The translation goes: {currentLine[0]}\n" + bcolors.ENDC)
+
+            elif (currentLine[0].upper().replace(" ", "").find(translation.upper().replace(" ","")) != -1
+            or translation.upper().replace(" ","") in currentLine[1].upper().replace(" ", "")):
+                print(bcolors.WARNING + "Not entirely correct, the translation goes " + bcolors.ENDC + bcolors.OKGREEN
+                  + currentLine[0] + bcolors.ENDC)
+
             else:
                 print(bcolor.FAIL + f'Wrong. The translation goes: ' + bcolors.ENDC + bcolors.OKBLUE + currentLine[0]
                   + bcolors.ENDc + "\n")
+
         print(bcolors.OKGREEN + "Thank you for using the Sindarin Rehearser!" + bcolors.ENDC)
 
 
